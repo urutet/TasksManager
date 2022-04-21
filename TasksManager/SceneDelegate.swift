@@ -9,8 +9,19 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+  private enum Constants {
+    static let notesTitle = "Notes"
+    static let notesImage = UIImage(systemName: "note")
+    static let notesImageSelected = UIImage(systemName: "note.text")
+    static let toDoTitle = "To Do"
+    static let toDoImage = UIImage(systemName: "mail")
+    static let toDoImageSelected = UIImage(systemName: "mail.fill")
+    static let accountTitle = "Account"
+    static let accountImage = UIImage(systemName: "person.circle")
+    static let accountImageSelected = UIImage(systemName: "person.circle.fill")
+  }
+  
   var window: UIWindow?
-
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -19,7 +30,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let windowScene = (scene as? UIWindowScene) else { return }
     let window = UIWindow(windowScene: windowScene)
     self.window = window
-    window.rootViewController = UIViewController()
+    
+    let notesVC = NotesViewController()
+    notesVC.tabBarItem = UITabBarItem(
+      title: Constants.notesTitle,
+      image: Constants.notesImage,
+      selectedImage: Constants.notesImageSelected
+    )
+    
+    let toDoVC = ToDoViewController()
+    toDoVC.tabBarItem = UITabBarItem(
+      title: Constants.toDoTitle,
+      image: Constants.toDoImage,
+      selectedImage: Constants.toDoImageSelected
+    )
+    
+    let accountVC = ToDoViewController()
+    accountVC.tabBarItem = UITabBarItem(
+      title: Constants.accountTitle,
+      image: Constants.accountImage,
+      selectedImage: Constants.accountImageSelected
+    )
+    
+    let tabBarVC = UITabBarController()
+    tabBarVC.view.backgroundColor = .systemBackground
+    tabBarVC.viewControllers = [notesVC, toDoVC, accountVC]
+    window.rootViewController = tabBarVC
     window.makeKeyAndVisible()
   }
 
