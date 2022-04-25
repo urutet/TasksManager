@@ -14,8 +14,8 @@ final class NetworkManager {
     private init(){}
     
     func getData (completion: @escaping(([ToDo])->Void)) {
-        AF.request(Constants.baseUrl + EndPoints.endUrl).responseDecodable(of: [ToDo].self) {responceIn in
-            switch responceIn.result {
+        AF.request(Constants.baseUrl + EndPoints.endUrl).responseDecodable(of: [ToDo].self) {responseIn in
+            switch responseIn.result {
             case .success(let model):
                 completion(model)
             case .failure(_):
