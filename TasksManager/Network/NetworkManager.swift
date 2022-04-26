@@ -18,8 +18,8 @@ final class NetworkManager {
             switch responseIn.result {
             case .success(let model):
                 completion(model)
-            case .failure(_):
-                print("ERROR")
+            case .failure(let error):
+                print(error)
             }
         }
     }

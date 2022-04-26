@@ -1,8 +1,8 @@
 import Foundation
 
 struct ToDo: Codable {
-    let userId: Int
-    let Id: Int
-    let title: String
-    let completed: Bool
+    let userId: Int?
+    let Id: Int?
+    let title: String?
+    let completed: Bool?
 }
