@@ -15,59 +15,34 @@ class ToDoViewController: UIViewController {
       tableView.reloadData()
     }
   }
-  //  @IBAction func pushEditAction(_ sender: Any) {
-  //      tableView.setEditing(!tableView.isEditing, animated: true)
-  //      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-  //          self.tableView.reloadData()
-  //      }
-  //
-  //  }
-  //
-  //
-  //
-  //  @IBAction func pushAddAction(_ sender: Any) {
-  //     let alertController =  UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
-  //      alertController.addTextField { (textField) in
-  //          textField.placeholder = "New item name"
-  //      }
-  //      let alertAction1 = UIAlertAction(title: "Cancel", style: .default) { (alert) in
-  //      }
-  //
-  //      let alertAction2 = UIAlertAction(title: "Create", style: .cancel) { (alert) in
-  //          // dobavit
-  //          let newItem = alertController.textFields![0].text
-  //          if newItem != "" {
-  //              addItem(nameItem: newItem!)
-  //              self.tableView.reloadData()
-  //          }
-  //
-  //      }
-  //
-  //
-  //
-  //
-  //      alertController.addAction(alertAction1)
-  //      alertController.addAction(alertAction2)
-  //          present(alertController, animated: true, completion: nil)
-  //      }
-  
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     NetworkManager.instance.getData { [weak self] items in
       self?.toDos = items
-      print(items)
     }
     view.backgroundColor = UIColor.groupTableViewBackground
     tableView.delegate = self
     tableView.dataSource = self
+    title = "To Do"
+    navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: .add,
+      target: self,
+      action: #selector(refreshTapped)
+    )
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem
+  }
+  
+  @objc
+  private func refreshTapped() {
+    NetworkManager.instance.getData { [weak self] items in
+      self?.toDos = items
+    }
   }
   
   // MARK: - Table view data source
@@ -123,32 +98,32 @@ extension ToDoViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
       // Delete the row from the data source
-      removeItem(at: indexPath.row)
+      toDos.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .fade)
     } else if editingStyle == .insert {
       // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
   }
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-    
-    if changeState(at: indexPath.row) {
-      tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-    } else {
-      tableView.cellForRow(at: indexPath)?.accessoryType = .none
-    }
-    
-    tableView.cellForRow(at: indexPath)?.accessoryType
-  }
-  
-  
-  
-  // Override to support rearranging the table view.
-  func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-    moveItem(fromIndex: fromIndexPath.row, toIndex: to.row)
-    tableView.reloadData()
-  }
+  //  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  //    tableView.deselectRow(at: indexPath, animated: true)
+  //
+  //    if changeState(at: indexPath.row) {
+  //      tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+  //    } else {
+  //      tableView.cellForRow(at: indexPath)?.accessoryType = .none
+  //    }
+  //
+  //    tableView.cellForRow(at: indexPath)?.accessoryType
+  //  }
+  //
+  //
+  //
+  //  // Override to support rearranging the table view.
+  //  func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+  //    moveItem(fromIndex: fromIndexPath.row, toIndex: to.row)
+  //    tableView.reloadData()
+  //  }
   
   func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
     if tableView.isEditing {

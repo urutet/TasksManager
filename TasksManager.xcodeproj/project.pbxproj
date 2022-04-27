@@ -15,7 +15,6 @@
 		3A2357952811EAD800CDC496 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2357942811EAD800CDC496 /* Assets.xcassets */; };
 		3A2357982811EAD800CDC496 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2357962811EAD800CDC496 /* LaunchScreen.storyboard */; };
 		3A2357A02811EDF400CDC496 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23579F2811EDF400CDC496 /* NotesViewController.swift */; };
-		3A2357A22811EE0700CDC496 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2357A12811EE0700CDC496 /* ToDoViewController.swift */; };
 		3A2357A52811EE2200CDC496 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2357A42811EE2200CDC496 /* AccountViewController.swift */; };
 		3A6216CA2819D90200E0F722 /* NotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6216C92819D90200E0F722 /* NotesRepository.swift */; };
 		3A6216CD2819D9B700E0F722 /* Note.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A6216CB2819D9B700E0F722 /* Note.xcdatamodeld */; };
@@ -39,7 +38,6 @@
 		3A2357972811EAD800CDC496 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A2357992811EAD800CDC496 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A23579F2811EDF400CDC496 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
-		3A2357A12811EE0700CDC496 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		3A2357A42811EE2200CDC496 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		3A6216C92819D90200E0F722 /* NotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRepository.swift; sourceTree = "<group>"; };
 		3A6216CC2819D9B700E0F722 /* Note.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Note.xcdatamodel; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				3A23579F2811EDF400CDC496 /* NotesViewController.swift */,
-				3A2357A12811EE0700CDC496 /* ToDoViewController.swift */,
 				3A2357A42811EE2200CDC496 /* AccountViewController.swift */,
 			);
 			path = Controller;
@@ -285,7 +282,6 @@
 				55E1B7F72819DAAD004FF0BA /* ToDoViewController.swift in Sources */,
 				268AF9B62816D506001F5927 /* ToDoModel.swift in Sources */,
 				F0D1EDCD281864EE0063E0AF /* AccountModel.swift in Sources */,
-				3A2357A22811EE0700CDC496 /* ToDoViewController.swift in Sources */,
 				3A6216CD2819D9B700E0F722 /* Note.xcdatamodeld in Sources */,
 				3A2357A02811EDF400CDC496 /* NotesViewController.swift in Sources */,
 				3A2357A52811EE2200CDC496 /* AccountViewController.swift in Sources */,
