@@ -1,29 +1,98 @@
 //
-//  NotesViewController.swift
-//  TasksManager
+//  AccountsViewController.swift
+//  converterapp
 //
-//  Created by Yushkevich Ilya on 21.04.22.
+//  Created by Yushkevich Ilya on 25.04.22.
 //
 
 import UIKit
 
-class NotesViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+final class NotesViewController: UIViewController {
+  
+  // MARK: - Properties
+  // MARK: Public
+  // MARK: Private
+  private enum Constants {
+    static let accountCellIdentifier = "NoteCell"
+  }
+  
+  private var notes = [NoteInfo]()
+  
+  private var notesCollectionView: UICollectionView = {
+    let layout = configureLayout()
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     
+    collectionView.showsVerticalScrollIndicator = false
+    collectionView.showsHorizontalScrollIndicator = false
+    
+    return collectionView
+  }()
+  
+  // MARK: - Lifecycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    notesCollectionView.register(
+      NoteCollectionViewCell.self,
+      forCellWithReuseIdentifier: Constants.accountCellIdentifier
+    )
+    notesCollectionView.delegate = self
+    notesCollectionView.dataSource = self
+    
+    navigationItem.rightBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: .add,
+      target: self,
+      action: #selector(addTapped)
+    )
+    
+    view.addSubview(notesCollectionView)
+    notesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      notesCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+      notesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      notesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      notesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+  }
+  
+  // MARK: - API
+  // MARK: - Setups
+  
+  private static func configureLayout() -> UICollectionViewCompositionalLayout {
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    item.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3))
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    group.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+    
+    let section = NSCollectionLayoutSection(group: group)
+    section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+    
+    return UICollectionViewCompositionalLayout(section: section)
+  }
+  // MARK: - Helpers
+  @objc
+  private func addTapped() {
+    
+  }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return notes.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if let cell = notesCollectionView.dequeueReusableCell(
+      withReuseIdentifier: Constants.accountCellIdentifier,
+      for: indexPath
+    ) as? NoteCollectionViewCell {
+      cell.setNote(notes[indexPath.row])
+      
+      return cell
     }
-    */
-
+    return UICollectionViewCell()
+  }
+  
 }

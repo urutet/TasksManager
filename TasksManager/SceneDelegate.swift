@@ -37,6 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       image: Constants.notesImage,
       selectedImage: Constants.notesImageSelected
     )
+    let notesNavigationVC = UINavigationController(rootViewController: notesVC)
     
     let toDoVC = ToDoViewController()
     toDoVC.tabBarItem = UITabBarItem(
@@ -55,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     let tabBarVC = UITabBarController()
     tabBarVC.view.backgroundColor = .systemBackground
-    tabBarVC.viewControllers = [notesVC, toDoNavigationVC, accountVC]
+    tabBarVC.viewControllers = [notesNavigationVC, toDoNavigationVC, accountVC]
     window.rootViewController = tabBarVC
     window.makeKeyAndVisible()
   }
