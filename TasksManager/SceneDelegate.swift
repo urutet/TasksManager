@@ -44,6 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       image: Constants.toDoImage,
       selectedImage: Constants.toDoImageSelected
     )
+    let toDoNavigationVC = UINavigationController(rootViewController: toDoVC)
     
     let accountVC = ToDoViewController()
     accountVC.tabBarItem = UITabBarItem(
@@ -54,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     let tabBarVC = UITabBarController()
     tabBarVC.view.backgroundColor = .systemBackground
-    tabBarVC.viewControllers = [notesVC, toDoVC, accountVC]
+    tabBarVC.viewControllers = [notesVC, toDoNavigationVC, accountVC]
     window.rootViewController = tabBarVC
     window.makeKeyAndVisible()
   }

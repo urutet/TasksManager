@@ -26,8 +26,8 @@ class ToDoViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     title = "To Do"
-    navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: .add,
+    navigationItem.rightBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: .refresh,
       target: self,
       action: #selector(refreshTapped)
     )
