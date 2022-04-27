@@ -17,6 +17,8 @@
 		3A2357A02811EDF400CDC496 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23579F2811EDF400CDC496 /* NotesViewController.swift */; };
 		3A2357A22811EE0700CDC496 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2357A12811EE0700CDC496 /* ToDoViewController.swift */; };
 		3A2357A52811EE2200CDC496 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2357A42811EE2200CDC496 /* AccountViewController.swift */; };
+		55E1B7F72819DAAD004FF0BA /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E1B7F52819DAAD004FF0BA /* ToDoViewController.swift */; };
+		55E1B7F82819DAAD004FF0BA /* ToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E1B7F62819DAAD004FF0BA /* ToDoViewController.xib */; };
 		78DBD72736D62BB8BF00A537 /* Pods_TasksManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A713F0C363DDC8C7938E796D /* Pods_TasksManager.framework */; };
 		F0D1EDCD281864EE0063E0AF /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1EDCB281864EE0063E0AF /* AccountModel.swift */; };
 		F0D1EDCE281864EE0063E0AF /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1EDCC281864EE0063E0AF /* NoteModel.swift */; };
@@ -35,6 +37,8 @@
 		3A23579F2811EDF400CDC496 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		3A2357A12811EE0700CDC496 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		3A2357A42811EE2200CDC496 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		55E1B7F52819DAAD004FF0BA /* ToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		55E1B7F62819DAAD004FF0BA /* ToDoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoViewController.xib; sourceTree = "<group>"; };
 		A713F0C363DDC8C7938E796D /* Pods_TasksManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TasksManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E734065492676E9696108578 /* Pods-TasksManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasksManager.release.xcconfig"; path = "Target Support Files/Pods-TasksManager/Pods-TasksManager.release.xcconfig"; sourceTree = "<group>"; };
 		F0D1EDCB281864EE0063E0AF /* AccountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				268AF9B42816D4D6001F5927 /* Network */,
 				3A2357A32811EE0B00CDC496 /* Controller */,
 				3A23578B2811EAD600CDC496 /* AppDelegate.swift */,
+				55E1B7F42819DA94004FF0BA /* ViewController */,
 				3A23578D2811EAD600CDC496 /* SceneDelegate.swift */,
 				3A23578F2811EAD600CDC496 /* ViewController.swift */,
 				3A2357942811EAD800CDC496 /* Assets.xcassets */,
@@ -114,6 +119,15 @@
 				E734065492676E9696108578 /* Pods-TasksManager.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		55E1B7F42819DA94004FF0BA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				55E1B7F52819DAAD004FF0BA /* ToDoViewController.swift */,
+				55E1B7F62819DAAD004FF0BA /* ToDoViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		A1AFD9306D6A71A74B0F25D1 /* Frameworks */ = {
@@ -193,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E1B7F82819DAAD004FF0BA /* ToDoViewController.xib in Resources */,
 				3A2357982811EAD800CDC496 /* LaunchScreen.storyboard in Resources */,
 				3A2357952811EAD800CDC496 /* Assets.xcassets in Resources */,
 			);
@@ -247,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E1B7F72819DAAD004FF0BA /* ToDoViewController.swift in Sources */,
 				268AF9B62816D506001F5927 /* ToDoModel.swift in Sources */,
 				F0D1EDCD281864EE0063E0AF /* AccountModel.swift in Sources */,
 				3A2357A22811EE0700CDC496 /* ToDoViewController.swift in Sources */,
