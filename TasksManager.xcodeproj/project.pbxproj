@@ -20,6 +20,9 @@
 		3A6216CD2819D9B700E0F722 /* Note.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A6216CB2819D9B700E0F722 /* Note.xcdatamodeld */; };
 		3A6216D42819DA7200E0F722 /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6216D22819DA7200E0F722 /* NoteMO+CoreDataClass.swift */; };
 		3A6216D52819DA7200E0F722 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6216D32819DA7200E0F722 /* NoteMO+CoreDataProperties.swift */; };
+		3A6216D82819E33700E0F722 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6216D72819E33700E0F722 /* NoteCollectionViewCell.swift */; };
+		3A6216DA281AA18600E0F722 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6216D9281AA18500E0F722 /* AddNoteViewController.swift */; };
+		3A6216DC281AC13E00E0F722 /* NotesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6216DB281AC13E00E0F722 /* NotesRepositoryProtocol.swift */; };
 		55E1B7F72819DAAD004FF0BA /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E1B7F52819DAAD004FF0BA /* ToDoViewController.swift */; };
 		55E1B7F82819DAAD004FF0BA /* ToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E1B7F62819DAAD004FF0BA /* ToDoViewController.xib */; };
 		78DBD72736D62BB8BF00A537 /* Pods_TasksManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A713F0C363DDC8C7938E796D /* Pods_TasksManager.framework */; };
@@ -43,6 +46,9 @@
 		3A6216CC2819D9B700E0F722 /* Note.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Note.xcdatamodel; sourceTree = "<group>"; };
 		3A6216D22819DA7200E0F722 /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3A6216D32819DA7200E0F722 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3A6216D72819E33700E0F722 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A6216D9281AA18500E0F722 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		3A6216DB281AC13E00E0F722 /* NotesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRepositoryProtocol.swift; sourceTree = "<group>"; };
 		55E1B7F52819DAAD004FF0BA /* ToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		55E1B7F62819DAAD004FF0BA /* ToDoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoViewController.xib; sourceTree = "<group>"; };
 		A713F0C363DDC8C7938E796D /* Pods_TasksManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TasksManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +100,7 @@
 		3A23578A2811EAD600CDC496 /* TasksManager */ = {
 			isa = PBXGroup;
 			children = (
+				3A6216D62819E2F000E0F722 /* CustomUIElements */,
 				3A6216C82819D8DF00E0F722 /* Repositories */,
 				F0D1EDCA281864940063E0AF /* Model */,
 				268AF9B42816D4D6001F5927 /* Network */,
@@ -114,6 +121,7 @@
 			children = (
 				3A23579F2811EDF400CDC496 /* NotesViewController.swift */,
 				3A2357A42811EE2200CDC496 /* AccountViewController.swift */,
+				3A6216D9281AA18500E0F722 /* AddNoteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,8 +130,17 @@
 			isa = PBXGroup;
 			children = (
 				3A6216C92819D90200E0F722 /* NotesRepository.swift */,
+				3A6216DB281AC13E00E0F722 /* NotesRepositoryProtocol.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		3A6216D62819E2F000E0F722 /* CustomUIElements */ = {
+			isa = PBXGroup;
+			children = (
+				3A6216D72819E33700E0F722 /* NoteCollectionViewCell.swift */,
+			);
+			path = CustomUIElements;
 			sourceTree = "<group>";
 		};
 		4D8090484F41CBA2153C14C1 /* Pods */ = {
@@ -283,6 +300,7 @@
 				268AF9B62816D506001F5927 /* ToDoModel.swift in Sources */,
 				F0D1EDCD281864EE0063E0AF /* AccountModel.swift in Sources */,
 				3A6216CD2819D9B700E0F722 /* Note.xcdatamodeld in Sources */,
+				3A6216DA281AA18600E0F722 /* AddNoteViewController.swift in Sources */,
 				3A2357A02811EDF400CDC496 /* NotesViewController.swift in Sources */,
 				3A2357A52811EE2200CDC496 /* AccountViewController.swift in Sources */,
 				F0D1EDCE281864EE0063E0AF /* NoteModel.swift in Sources */,
@@ -291,8 +309,10 @@
 				3A6216D42819DA7200E0F722 /* NoteMO+CoreDataClass.swift in Sources */,
 				3A23578C2811EAD600CDC496 /* AppDelegate.swift in Sources */,
 				3A23578E2811EAD600CDC496 /* SceneDelegate.swift in Sources */,
+				3A6216D82819E33700E0F722 /* NoteCollectionViewCell.swift in Sources */,
 				3A6216CA2819D90200E0F722 /* NotesRepository.swift in Sources */,
 				3A6216D52819DA7200E0F722 /* NoteMO+CoreDataProperties.swift in Sources */,
+				3A6216DC281AC13E00E0F722 /* NotesRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
