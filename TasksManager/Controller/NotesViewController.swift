@@ -16,7 +16,12 @@ final class NotesViewController: UIViewController {
     static let accountCellIdentifier = "NoteCell"
   }
   
-  private var notes = [NoteInfo]()
+  private let notesRepository: NotesRepositoryProtocol = NotesRepository.instance
+  private var notes = [NoteInfo]() {
+    didSet {
+      notesCollectionView.reloadData()
+    }
+  }
   
   private var notesCollectionView: UICollectionView = {
     let layout = configureLayout()
@@ -31,6 +36,7 @@ final class NotesViewController: UIViewController {
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "Notes"
     notesCollectionView.register(
       NoteCollectionViewCell.self,
       forCellWithReuseIdentifier: Constants.accountCellIdentifier
@@ -43,6 +49,10 @@ final class NotesViewController: UIViewController {
       target: self,
       action: #selector(addTapped)
     )
+    
+    if let notes = notesRepository.getNotes() {
+      self.notes = notes
+    }
     
     view.addSubview(notesCollectionView)
     notesCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +84,16 @@ final class NotesViewController: UIViewController {
   // MARK: - Helpers
   @objc
   private func addTapped() {
+    let addNoteVC = AddNoteViewController()
+    let eventHandler: (NoteInfo) -> Void = { [weak self] note in
+      guard let strongSelf = self else { return }
+      strongSelf.notes.append(note)
+      strongSelf.notesRepository.saveNote(note)
+    }
+    addNoteVC.eventHandler = eventHandler
     
+    addNoteVC.modalPresentationStyle = .formSheet
+    present(addNoteVC, animated: true)
   }
 }
 
