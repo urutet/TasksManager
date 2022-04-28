@@ -8,11 +8,11 @@
 import Foundation
 import CoreData
 
-final class NotesRepository {
+final class NotesRepository: NotesRepositoryProtocol {
   private enum Constants {
     static let entityName = "NoteMO"
     static let titlePredicate = "title == %@"
-    static let containerName = "NoteModel"
+    static let containerName = "Note"
   }
   
   static let instance = NotesRepository()
@@ -64,9 +64,9 @@ final class NotesRepository {
     let fetchRequest = NoteMO.fetchRequest()
     
     do {
-      let moviesMO = try managedContext.fetch(fetchRequest)
-      let movies = moviesMO.compactMap{ convertToNote(noteMO: $0) }
-      return movies
+      let notesMO = try managedContext.fetch(fetchRequest)
+      let notes = notesMO.compactMap{ convertToNote(noteMO: $0) }
+      return notes
     } catch let error as NSError {
       print("Error - \(error)")
     }
